@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Formulario de Votación">
+        <div class="slds-p-horizontal_medium">
+            <!-- Nombre del Votante -->
+            <lightning-input label="Nombre del Votante" value={nombre} onchange={handleNombreChange} required></lightning-input>
+
+            <!-- Identificación del Votante -->
+            <lightning-input label="Identificación del Votante" value={identificacion} onchange={handleIdentificacionChange} required></lightning-input>
+
+            <!-- Candidato Votado -->
+            <lightning-combobox label="Candidato Votado" value={candidatoId} options={candidatos} onchange={handleCandidatoChange} required></lightning-combobox>
+
+            <!-- Mostrar la imagen del candidato seleccionado -->
+            <template if:true={candidatoImagen}>
+                <div class="slds-m-top_medium">
+                    <h3>Has seleccionado: {candidatoNombre}</h3>
+                    <img src={candidatoImagen} alt="Imagen del Candidato" style="width: 150px;"/>
+                </div>
+            </template>
+
+            <!-- Botón para votar -->
+            <div class="slds-m-top_medium">
+                <lightning-button variant="brand" label="Votar" onclick={handleVotar}></lightning-button>
+            </div>
+
+            <!-- Mensaje de error si ya votó -->
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error slds-m-top_medium">
+                    <p>{errorMessage}</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
