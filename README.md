@@ -6,7 +6,7 @@ Este proyecto consiste en una aplicación de votación desarrollada sobre la pla
 
 La interfaz de usuario se desarrolló con **Lightning Web Components (LWC)** para una experiencia moderna y reactiva, y la lógica de backend se implementó con clases **Apex** que gestionan la obtención de candidatos y el registro de votaciones.
 
----
+---PRUEBA TEST 1
 
 ## Tecnologías utilizadas
 
