@@ -1,31 +1,55 @@
 <template>
-    <lightning-card title="Formulario de Votación">
-        <div class="slds-p-horizontal_medium">
+    <lightning-card title="Formulario de Votación" icon-name="standard:voting">
+        <div class="slds-p-around_medium">
             <!-- Nombre del Votante -->
-            <lightning-input label="Nombre del Votante" value={nombre} onchange={handleNombreChange} required></lightning-input>
+            <lightning-input 
+                label="Nombre del Votante" 
+                value={nombre} 
+                onchange={handleNombreChange} 
+                required
+                class="input-field">
+            </lightning-input>
 
             <!-- Identificación del Votante -->
-            <lightning-input label="Identificación del Votante" value={identificacion} onchange={handleIdentificacionChange} required></lightning-input>
+            <lightning-input 
+                label="Identificación del Votante" 
+                value={identificacion} 
+                onchange={handleIdentificacionChange} 
+                required
+                class="input-field">
+            </lightning-input>
 
             <!-- Candidato Votado -->
-            <lightning-combobox label="Candidato Votado" value={candidatoId} options={candidatos} onchange={handleCandidatoChange} required></lightning-combobox>
+            <lightning-combobox 
+                label="Candidato Votado" 
+                value={candidatoId} 
+                options={candidatos} 
+                onchange={handleCandidatoChange} 
+                required
+                class="input-field">
+            </lightning-combobox>
 
             <!-- Mostrar la imagen del candidato seleccionado -->
             <template if:true={candidatoImagen}>
-                <div class="slds-m-top_medium">
-                    <h3>Has seleccionado: {candidatoNombre}</h3>
-                    <img src={candidatoImagen} alt="Imagen del Candidato" style="width: 150px;"/>
+                <div class="selected-candidate slds-m-top_medium slds-align_absolute-center">
+                    <h3 class="candidate-name slds-text-heading_medium slds-m-bottom_small">Has seleccionado: {candidatoNombre}</h3>
+                    <img src={candidatoImagen} alt="Imagen del Candidato" class="candidate-image" />
                 </div>
             </template>
 
             <!-- Botón para votar -->
-            <div class="slds-m-top_medium">
-                <lightning-button variant="brand" label="Votar" onclick={handleVotar}></lightning-button>
+            <div class="slds-m-top_large">
+                <lightning-button 
+                    variant="brand" 
+                    label="Votar" 
+                    onclick={handleVotar} 
+                    class="submit-button">
+                </lightning-button>
             </div>
 
             <!-- Mensaje de error si ya votó -->
             <template if:true={errorMessage}>
-                <div class="slds-text-color_error slds-m-top_medium">
+                <div class="error-message slds-m-top_medium slds-text-color_error slds-text-body_regular">
                     <p>{errorMessage}</p>
                 </div>
             </template>

@@ -1,0 +1,36 @@
+.input-field {
+    margin-bottom: 1rem;
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+}
+
+.selected-candidate {
+    text-align: center;
+}
+
+.candidate-name {
+    font-weight: 600;
+    color: #16325c; /* texto oscuro */
+}
+
+.candidate-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.candidate-image:hover {
+    transform: scale(1.05);
+}
+
+.submit-button {
+    width: 100%;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.error-message {
+    font-weight: 600;
+}
