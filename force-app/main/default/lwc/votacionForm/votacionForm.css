@@ -1,36 +1,117 @@
-.input-field {
-    margin-bottom: 1rem;
-    font-family: 'Salesforce Sans', Arial, sans-serif;
-}
-
-.selected-candidate {
-    text-align: center;
-}
-
-.candidate-name {
-    font-weight: 600;
-    color: #16325c; /* texto oscuro */
-}
-
-.candidate-image {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.candidate-image:hover {
-    transform: scale(1.05);
-}
-
-.submit-button {
-    width: 100%;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-.error-message {
-    font-weight: 600;
-}
+/* Contenedor principal del formulario */
+.container {
+    width: 100%;              /* Ocupa todo el ancho del contenedor padre */
+    max-width: 600px;         /* Máximo ancho para que no se extienda demasiado en pantallas grandes */
+    margin: 2rem auto;        /* Centrado horizontal con margen arriba y abajo */
+    padding: 2rem 1rem;       /* Padding lateral reducido para móviles */
+    background: #ffffff;      /* Fondo blanco limpio */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 12px;      /* Bordes redondeados */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente legible y moderna */
+    color: #222222;           /* Texto oscuro */
+    box-sizing: border-box;   /* Para que padding se incluya dentro del ancho */
+  }
+  
+  /* Ajustes para pantallas pequeñas */
+  @media (max-width: 480px) {
+    .container {
+      padding: 1.5rem 1rem;   /* Menor padding lateral en móviles */
+      margin: 1rem 0.5rem;    /* Menor margen para aprovechar espacio */
+      border-radius: 8px;     /* Bordes un poco menos redondeados */
+    }
+  
+    .submit-button {
+      width: 100% !important; /* Botón ocupa todo el ancho en móviles */
+    }
+  }
+  
+  /* Estilo para el título principal */
+  .header-text {
+    font-size: 1.8rem; /* Tamaño grande para jerarquía visual */
+    font-weight: 700; /* Negrita para énfasis */
+    margin-bottom: 2rem; /* Separación con el contenido siguiente */
+    text-align: center; /* Centrar texto */
+    color: #0d47a1; /* Azul intenso, elegante y profesional */
+  }
+  
+  /* Estilo para los campos de entrada (inputs y combobox) */
+  .input-field {
+    margin-bottom: 1.5rem; /* Espacio debajo para separar cada campo */
+  }
+  
+  /* Contenedor para mostrar el candidato seleccionado */
+  .selected-candidate {
+    display: flex; /* Usar flexbox para alinear imagen y texto horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    gap: 1rem; /* Espacio entre imagen y texto */
+    margin-top: 1.5rem; /* Espacio arriba para separar del combobox */
+    padding: 0.7rem 1.2rem; /* Relleno interno para comodidad visual */
+    border-left: 5px solid #0d47a1; /* Barra vertical azul a la izquierda para énfasis */
+    background-color: #f9f9f9; /* Fondo gris claro para destacar área */
+    border-radius: 10px; /* Bordes suavizados */
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.05); /* Sombra muy ligera para profundidad */
+  }
+  
+  /* Imagen del candidato */
+  .candidate-image {
+    width: 70px; /* Tamaño fijo y cómodo */
+    height: 70px; /* Mantener proporción cuadrada */
+    object-fit: cover; /* Cubrir el área sin deformar */
+    border-radius: 50%; /* Imagen circular */
+    box-shadow: 0 3px 8px rgba(13, 71, 161, 0.4); /* Sombra azul suave */
+    transition: transform 0.3s ease; /* Animación suave para hover */
+  }
+  
+  /* Efecto hover en imagen del candidato */
+  .candidate-image:hover {
+    transform: scale(1.1); /* Agrandar imagen ligeramente */
+  }
+  
+  /* Nombre del candidato */
+  .candidate-name {
+    font-size: 1.3rem; /* Tamaño legible y destacado */
+    font-weight: 700; /* Negrita */
+    color: #222222; /* Color texto oscuro para contraste */
+  }
+  
+  /* Contenedor del botón, centrado horizontalmente */
+  .button-container {
+    display: flex; /* Usar flexbox para centrar */
+    justify-content: center; /* Centrar contenido horizontalmente */
+    margin-top: 3rem; /* Espacio arriba para separar de contenido */
+    padding: 0 1rem; /* Pequeño padding lateral */
+  }
+  
+  /* Estilo del botón "Votar" */
+  .submit-button {
+    width: 150px; /* Ancho cómodo para interacción */
+    font-weight: 700; /* Texto en negrita */
+    font-size: 1.1rem; /* Tamaño adecuado para lectura */
+    padding: 0.8rem 0; /* Padding vertical para tamaño y comodidad */
+    border-radius: 25px; /* Botón con bordes redondeados estilo “pill” */
+    box-shadow: 0 6px 15px rgba(13, 71, 161, 0.4); /* Sombra azul para resaltarlo */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave en cambio de color */
+  }
+  
+  /* Color al pasar el cursor sobre el botón */
+  .submit-button:hover {
+    background-color: #0b3c91; /* Azul más oscuro */
+  }
+  
+  /* Mensaje de error */
+  .error-message {
+    margin-top: 1.2rem; /* Espacio arriba para separarlo */
+    font-weight: 700; /* Negrita para resaltar */
+    font-size: 1rem; /* Tamaño legible */
+    color: #d32f2f; /* Rojo fuerte para alertar */
+    text-align: center; /* Centrar texto para mejor visibilidad */
+  }
+/* Solo afecta al label dentro del lightning-input con clase nombre-label-especial */
+/*.custom-label {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a237e;
+    display: block;
+    margin-bottom: 0.3rem;
+  }*/
