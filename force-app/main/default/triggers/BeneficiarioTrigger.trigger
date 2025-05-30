@@ -1,28 +1,21 @@
-trigger BeneficiarioTrigger on beneficiario__c (before insert, before delete, before update, after insert, after update, after delete){
-
-    if (trigger.isBefore) {
-        if (Trigger.isInsert || trigger.isUpdate){
-
-        BeneficiarioHelper.validaBeneficiarios(Trigger.new);
-     }
-    else if 
-        (Trigger.isDelete){
-        BeneficiarioHelper.validaBeneficiarios(Trigger.old);
-    
-     }
-
-
+trigger BeneficiarioTrigger on Beneficiario__c (
+    before insert,
+    before update,
+    after insert,
+    after update,
+    after delete
+) {
+    if(Trigger.isBefore){
+        if(Trigger.isInsert || Trigger.isUpdate){
+            BeneficiarioHelper.validaBeneficiarios(Trigger.new);
+        }
     }
 
-    if (Trigger.isAfter){If (Trigger.IsUpdate)
-    {
-        BeneficiarioHelper.actualizaConteosYLlaveExterna(Trigger.New);
-
+    if(Trigger.isAfter){
+        if(Trigger.isInsert || Trigger.isUpdate){
+            BeneficiarioHelper.actualizaConteosYLlaveExterna(Trigger.new);
+        } else if(Trigger.isDelete){
+            BeneficiarioHelper.actualizaConteosYLlaveExterna(Trigger.old);
+        }
     }
-    
-    else if(Trigger.isDelete){
-        BeneficiarioHelper.actualizaConteosYLlaveExterna(Trigger.Old);
-    }
-    }
-
 }
