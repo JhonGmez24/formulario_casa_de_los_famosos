@@ -10,7 +10,7 @@ public with sharing class VotacionController {
     // Método para guardar la votación (también debe ser estático y con @AuraEnabled)
     @AuraEnabled
     public static void registrarVotacion(String nombre, String identificacion, Id candidatoId) {
-        // Verifica si ya existe una votación con el mismo nombre e identificación
+        // Verifica si ya existe una votación con el mismo nombre e identificación Hola Puedes cambiar 
         List<Votacion__c> votosExistentes = [SELECT Id FROM Votacion__c WHERE Nombre_del_votante__c = :nombre AND Identificacion_del_votante__c = :identificacion LIMIT 1];
         if (!votosExistentes.isEmpty()) {
             throw new AuraHandledException('Ya existe una votación registrada con este nombre e identificación.');
